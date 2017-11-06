@@ -1,0 +1,28 @@
+{
+  "name": "roman-numerals",
+  "version": "1.0.0",
+  "description": "takes a number and returns the roman numeral representation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node_modules/.bin/nodemon .",
+    "test": "node_modules/.bin/ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mckn/roman-numerals.git"
+  },
+  "author": "Marcus Andersson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mckn/roman-numerals/issues"
+  },
+  "homepage": "https://github.com/mckn/roman-numerals#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-router": "^7.2.1"
+  },
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "nodemon": "^1.12.1"
+  }
+}
