@@ -26,4 +26,4 @@ docker-compose api npm test
 
 ### Deployment
 
-If you want to deploy it to AWS I would recommend you using the Docker mode in Elastic Beanstalk. It is super simple to set up, prowen in battle and you get the all the power of the AWS platform including loadbalancer, zero-down-time deployment and lots of other features.
+If you want to deploy it to AWS I would recommend you using the Docker mode in Elastic Beanstalk. It is super simple to set up, proven in battle and you get the all the power of the AWS platform including loadbalancer, zero-down-time deployment and lots of other features.
