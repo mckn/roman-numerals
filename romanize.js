@@ -1,41 +1,39 @@
 "use strict";
 
-const base = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
-const tens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
-const hundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
+const base = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+const tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
+const hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
 
-module.exports = number => append(number);
+module.exports = convert;
 
-function append(number, special = "") {
-  if (number > 999) {
-    const index = Math.floor(number / 1000);
-    number = number % 1000;
+function convert(number) {
+  if (number >= 1000) {
+    const index = calculateIndex(number, 1000);
+    const thousands = formatAsThousands(convert(index));
 
-    return formatAsThousands(append(index)) + append(number);
+    return thousands + convert(number % 1000);
   }
 
-  if (number > 99) {
+  if (number >= 100) {
     const index = calculateIndex(number, 100);
-    number = number % 100;
-    return `${hundreds[index]}${special}` + append(number, special);
+    return hundreds[index] + convert(number % 100);
   }
 
-  if (number > 9) {
+  if (number >= 10) {
     const index = calculateIndex(number, 10);
-    number = number % 10;
-    return `${tens[index]}${special}` + append(number, special);
+    return tens[index] + convert(number % 10);
   }
 
-  if (number > 0) {
+  if (number >= 0) {
     const index = calculateIndex(number, 1);
-    return `${base[index]}${special}`;
+    return base[index];
   }
 
   return "";
 }
 
 function calculateIndex(number, part) {
-  return Math.floor(number / part) - 1;
+  return Math.floor(number / part);
 }
 
 function formatAsThousands(numeral) {
