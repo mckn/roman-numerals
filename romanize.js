@@ -4,7 +4,17 @@ const base = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 const tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
 const hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
 
-module.exports = convert;
+module.exports = number => {
+  if (typeof number !== "number") {
+    return "";
+  }
+
+  if (number < 0) {
+    return convert(Math.abs(number));
+  }
+
+  return convert(number);
+};
 
 function convert(number) {
   if (number >= 1000) {
