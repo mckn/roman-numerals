@@ -36,3 +36,7 @@ test("romanize should convert 25 to XXV", t => {
 test("romanize should convert 34 to XXXIV", t => {
   t.is(romanize(34), "XXXIV");
 });
+
+test("romanize should convert 50 to L", t => {
+  t.is(romanize(50), "L");
+});
