@@ -5,38 +5,40 @@ const tens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
 const hundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
 const thousand = "\u0305";
 
-module.exports = number => {
-  let converted = "";
+module.exports = number => append(number);
 
+function append(number, special = "") {
   if (number > 999) {
-    number = number / 1000;
-    return append(converted, number, thousand);
+    const index = Math.floor(number / 1000);
+    number = number % 1000;
+
+    return toThousands(append(index)) + append(number);
   }
 
-  return append(converted, number);
-};
-
-function append(converted, number, special = "") {
   if (number > 99) {
     const index = calculateIndex(number, 100);
-    converted += `${hundreds[index]}${special}`;
     number = number % 100;
+    return `${hundreds[index]}${special}` + append(number, special);
   }
 
   if (number > 9) {
     const index = calculateIndex(number, 10);
-    converted += `${tens[index]}${special}`;
     number = number % 10;
+    return `${tens[index]}${special}` + append(number, special);
   }
 
   if (number > 0) {
     const index = calculateIndex(number, 1);
-    converted += `${base[index]}${special}`;
+    return `${base[index]}${special}`;
   }
 
-  return converted;
+  return "";
 }
 
 function calculateIndex(number, part) {
   return Math.floor(number / part) - 1;
+}
+
+function toThousands(numeral) {
+  return numeral.split("").join(thousand) + thousand;
 }
