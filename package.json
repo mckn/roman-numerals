@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node_modules/.bin/nodemon .",
-    "test": "node_modules/.bin/ava"
+    "test": "NODE_ENV=test node_modules/.bin/ava"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "ava": "^0.23.0",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "supertest-koa-agent": "^0.3.0"
   }
 }

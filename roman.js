@@ -4,7 +4,7 @@ const base = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 const tens = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
 const hundreds = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
 
-module.exports = number => {
+exports.parse = number => {
   if (typeof number !== "number") {
     return "";
   }
