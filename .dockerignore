@@ -1,0 +1,53 @@
+# aws
+deploy
+bin
+dbmigrate
+docs
+
+# CI build
+circle.yml
+travis.yml
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Logs
+logs
+*.log
+npm-debug.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+node_modules
+
+# npm
+.node_repl_history
+.npm
+jspm_packages
+
+# Git stuff
+.git
+.gitignore
+
+# Other
+*.md
+
+# development
+nodemon.json
+Procfile
+.jshintrc
+.editorconfig
+.env

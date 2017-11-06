@@ -1,0 +1,7 @@
+{
+  "ignore": ["node_modules"],
+  "env": {
+    "NODE_ENV": "local"
+  },
+  "ext": "js json"
+}
