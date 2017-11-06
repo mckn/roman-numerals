@@ -40,3 +40,15 @@ test("romanize should convert 34 to XXXIV", t => {
 test("romanize should convert 50 to L", t => {
   t.is(romanize(50), "L");
 });
+
+test("romanize should convert 74 to LXXIV", t => {
+  t.is(romanize(74), "LXXIV");
+});
+
+test("romanize should convert 80 to LXXX", t => {
+  t.is(romanize(80), "LXXX");
+});
+
+test("romanize should convert 99 to XCIX", t => {
+  t.is(romanize(99), "XCIX");
+});
