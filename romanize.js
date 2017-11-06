@@ -3,7 +3,6 @@
 const base = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 const tens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
 const hundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
-const thousand = "\u0305";
 
 module.exports = number => append(number);
 
@@ -12,7 +11,7 @@ function append(number, special = "") {
     const index = Math.floor(number / 1000);
     number = number % 1000;
 
-    return toThousands(append(index)) + append(number);
+    return formatAsThousands(append(index)) + append(number);
   }
 
   if (number > 99) {
@@ -39,6 +38,11 @@ function calculateIndex(number, part) {
   return Math.floor(number / part) - 1;
 }
 
-function toThousands(numeral) {
-  return numeral.split("").join(thousand) + thousand;
+function formatAsThousands(numeral) {
+  const thousand = "\u0305";
+
+  return numeral
+    .split("")
+    .map(n => `${n}${thousand}`)
+    .join("");
 }
