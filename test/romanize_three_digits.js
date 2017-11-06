@@ -24,3 +24,11 @@ test("romanize should convert 800 to DCCC", t => {
 test("romanize should convert 900 to CM", t => {
   t.is(romanize(900), "CM");
 });
+
+test("romanize should convert 999 to CMXCIX", t => {
+  t.is(romanize(999), "CMXCIX");
+});
+
+test("romanize should convert 499 to CDXCIX", t => {
+  t.is(romanize(499), "CDXCIX");
+});
